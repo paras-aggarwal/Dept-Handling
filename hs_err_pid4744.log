@@ -1,0 +1,150 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x77616138, pid=4744, tid=976
+#
+# JRE version: 7.0
+# Java VM: Java HotSpot(TM) Client VM (19.0-b05 mixed mode, sharing windows-x86 )
+# Problematic frame:
+# C  [ntdll.dll+0x56138]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x01aa3000):  VMThread [stack: 0x013d0000,0x01420000] [id=976]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0xffffffff
+
+Registers:
+EAX=0xfffffff8, EBX=0x00000000, ECX=0x00000008, EDX=0x000003d0
+ESP=0x0141ea4c, EBP=0x0141ea54, ESI=0x011d0000, EDI=0x6dc09eac
+EIP=0x77616138, EFLAGS=0x00010282
+
+Top of Stack: (sp=0x0141ea4c)
+0x0141ea4c:   00000000 6dc4d850 0141eaa0 7c3420d6
+0x0141ea5c:   011d0000 00000000 00000000 6dc09eac
+0x0141ea6c:   6dc4d850 00000000 0141fb9c 6dc09eac
+0x0141ea7c:   7c38b348 0141fb9c 0141ea9c 0141ea68
+0x0141ea8c:   0141e658 0141eacc 7c34240d 7c37a368
+0x0141ea9c:   ffffffff 0141eadc 7c34c0b4 00000000
+0x0141eaac:   6dc09eac 00000003 00000000 0141ead0
+0x0141eabc:   00152050 0015208c 0141eaac 0141e658 
+
+Instructions: (pc=0x77616138)
+0x77616128:   03 00 8b 45 10 a8 07 0f 85 5e 0c 03 00 83 c0 f8
+0x77616138:   80 78 07 05 0f 84 3a 0c 03 00 f6 40 07 3f 0f 84 
+
+
+Stack: [0x013d0000,0x01420000],  sp=0x0141ea4c,  free space=13a0141e5a4k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [ntdll.dll+0x56138]
+C  [MSVCR71.dll+0x20d6]
+C  [MSVCR71.dll+0xc0b4]
+V  [jvm.dll+0x2055f4]
+V  [jvm.dll+0x1841d5]
+V  [jvm.dll+0x184f4e]
+C  [MSVCR71.dll+0x9565]
+C  [kernel32.dll+0x51174]
+C  [ntdll.dll+0x5b3f5]
+C  [ntdll.dll+0x5b3c8]
+
+VM_Operation (0x011afb60): Exit, mode: safepoint, requested by thread 0x011d9000
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x01ac8000 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=5116, stack(0x03da0000,0x03df0000)]
+  0x01ab3400 JavaThread "CompilerThread0" daemon [_thread_blocked, id=5908, stack(0x03d50000,0x03da0000)]
+  0x01ab1c00 JavaThread "Attach Listener" daemon [_thread_blocked, id=5548, stack(0x03d00000,0x03d50000)]
+  0x01aa6000 JavaThread "Finalizer" daemon [_thread_blocked, id=5308, stack(0x03c60000,0x03cb0000)]
+  0x01aa4000 JavaThread "Reference Handler" daemon [_thread_blocked, id=2192, stack(0x03c10000,0x03c60000)]
+  0x011d9000 JavaThread "main" [_thread_blocked, id=5508, stack(0x01160000,0x011b0000)]
+
+Other Threads:
+=>0x01aa3000 VMThread [stack: 0x013d0000,0x01420000] [id=976]
+
+VM state:at safepoint (shutting down)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x011d7548] Threads_lock - owner thread: 0x01aa3000
+
+Heap
+ def new generation   total 3200K, used 1091K [0x238f0000, 0x23c60000, 0x28e40000)
+  eden space 2880K,  37% used [0x238f0000, 0x23a00c08, 0x23bc0000)
+  from space 320K,   0% used [0x23bc0000, 0x23bc0000, 0x23c10000)
+  to   space 320K,   0% used [0x23c10000, 0x23c10000, 0x23c60000)
+ tenured generation   total 6980K, used 4187K [0x28e40000, 0x29511000, 0x338f0000)
+   the space 6980K,  59% used [0x28e40000, 0x29256e98, 0x29257000, 0x29511000)
+ compacting perm gen  total 12288K, used 3013K [0x338f0000, 0x344f0000, 0x378f0000)
+   the space 12288K,  24% used [0x338f0000, 0x33be1778, 0x33be1800, 0x344f0000)
+    ro space 10240K,  57% used [0x378f0000, 0x37ebc7f8, 0x37ebc800, 0x382f0000)
+    rw space 12288K,  53% used [0x382f0000, 0x389574a0, 0x38957600, 0x38ef0000)
+
+Dynamic libraries:
+0x00400000 - 0x00405000 	C:\Program Files\Java\jdk1.7.0\bin\javac.exe
+0x775c0000 - 0x776fc000 	C:\Windows\SYSTEM32\ntdll.dll
+0x77710000 - 0x777e4000 	C:\Windows\system32\kernel32.dll
+0x757c0000 - 0x7580a000 	C:\Windows\system32\KERNELBASE.dll
+0x6d010000 - 0x6d030000 	C:\Program Files\Java\jdk1.7.0\bin\jli.dll
+0x76e30000 - 0x76ed0000 	C:\Windows\system32\ADVAPI32.dll
+0x76d10000 - 0x76dbc000 	C:\Windows\system32\msvcrt.dll
+0x768b0000 - 0x768c9000 	C:\Windows\SYSTEM32\sechost.dll
+0x77310000 - 0x773b1000 	C:\Windows\system32\RPCRT4.dll
+0x75980000 - 0x75a04000 	C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_5.82.7600.16385_none_ebf82fc36c758ad5\COMCTL32.dll
+0x76b50000 - 0x76b9e000 	C:\Windows\system32\GDI32.dll
+0x76f00000 - 0x76fc9000 	C:\Windows\system32\USER32.dll
+0x75a10000 - 0x75a1a000 	C:\Windows\system32\LPK.dll
+0x76950000 - 0x769ed000 	C:\Windows\system32\USP10.dll
+0x7c340000 - 0x7c396000 	C:\Program Files\Java\jdk1.7.0\bin\MSVCR71.dll
+0x76dc0000 - 0x76ddf000 	C:\Windows\system32\IMM32.DLL
+0x767e0000 - 0x768ac000 	C:\Windows\system32\MSCTF.dll
+0x75450000 - 0x75703000 	c:\progra~2\bitguard\261694~1.246\{c16c1~1\bitguard.dll
+0x75b90000 - 0x767d9000 	C:\Windows\system32\SHELL32.dll
+0x772b0000 - 0x77307000 	C:\Windows\system32\SHLWAPI.dll
+0x75a30000 - 0x75b8c000 	C:\Windows\system32\ole32.dll
+0x76c80000 - 0x76d0f000 	C:\Windows\system32\OLEAUT32.dll
+0x753e0000 - 0x753e9000 	C:\Windows\system32\VERSION.dll
+0x76ed0000 - 0x76efa000 	C:\Windows\system32\imagehlp.dll
+0x76de0000 - 0x76de5000 	C:\Windows\system32\PSAPI.DLL
+0x75380000 - 0x753d8000 	C:\Windows\system32\WINHTTP.dll
+0x75330000 - 0x7537f000 	C:\Windows\system32\webio.dll
+0x00390000 - 0x003e6000 	C:\Program Files\Java\jdk1.7.0\jre\bin\msvcr71.dll
+0x6d9d0000 - 0x6dc76000 	C:\Program Files\Java\jdk1.7.0\jre\bin\client\jvm.dll
+0x736f0000 - 0x73722000 	C:\Windows\system32\WINMM.dll
+0x75290000 - 0x752db000 	C:\Windows\system32\apphelp.dll
+0x6d970000 - 0x6d97b000 	C:\Program Files\Java\jdk1.7.0\jre\bin\verify.dll
+0x6d410000 - 0x6d42f000 	C:\Program Files\Java\jdk1.7.0\jre\bin\java.dll
+0x6d390000 - 0x6d398000 	C:\Program Files\Java\jdk1.7.0\jre\bin\hpi.dll
+0x6d9b0000 - 0x6d9c2000 	C:\Program Files\Java\jdk1.7.0\jre\bin\zip.dll
+
+VM Arguments:
+jvm_args: -Denv.class.path=.;C:\Program Files\Java\jre7\lib\ext\QTJava.zip -Dapplication.home=C:\Program Files\Java\jdk1.7.0 -Xms8m 
+java_command: com.sun.tools.javac.Main mainmenu.java
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+CLASSPATH=.;C:\Program Files\Java\jre7\lib\ext\QTJava.zip
+PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;c:\Program Files\Microsoft SQL Server\90\Tools\binn\;C:\Program Files\Microsoft SQL Server\80\Tools\Binn\;C:\Program Files\Microsoft SQL Server\90\DTS\Binn\;C:\Program Files\Java\jdk1.7.0\bin;C:\Program Files\QuickTime\QTSystem\
+USERNAME=India
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 23 Stepping 10, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 Build 7600 
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 23 stepping 10, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1
+
+Memory: 4k page, physical 2091280k(987332k free), swap 4182560k(2581052k free)
+
+vm_info: Java HotSpot(TM) Client VM (19.0-b05) for windows-x86 JRE (1.7.0-ea-b104), built on Aug  6 2010 04:11:31 by "java_re" with MS VC++ 7.1 (VS2003)
+
+time: Sun Oct 13 11:53:45 2013
+elapsed time: 1 seconds
+
